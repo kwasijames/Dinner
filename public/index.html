@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ricks Diner</title>
+	
+	<link rel="stylesheet" type="text/css" href="./css/style.css"> 
+	<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+     <!-- Optional theme -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+<body>
+<!-- ============== -->
+<!-- Menu of dishes -->
+<!-- ============== -->
+<div class="container">
+<h1>Diner Menu</h1>
+<a href="#" >Home</a>  
+<a href="#/new">Add Dish</a>
+<div class="menu">	
+</div>
+
+
+<!-- =================== -->
+<!--  Add Dish Template  -->
+<!-- =================== -->
+
+<div class="add-dish-form">
+<legend>Create Dish</legend>
+<hr />
+<label>Name:</label>
+<input type="text" name="name" id="newDishName"/>
+<label>Image:</label>
+<input type="text" name="image_url" id="newDishImageUrl" />
+<label>Price:</label>
+<input type="text" name="price" id="newDishPrice"/>
+<hr />
+<button type="submit" class="add-dish">Create</button>
+</div>
+</div>
+
+<!-- =================================== -->
+<!--   create a template for menu list   -->
+<!-- =================================== -->
+<script type="text/template" id="menu-list-template">
+	<br />
+	<span class="dish">
+	<img src="<%= dish.image_url %>">
+	<br />
+	<h4><%= dish.name %></h4>
+
+	<h4>Price: $<%= dish.price %> </h4>
+	<button class="button" id="editButton">Edit</button>
+	<button class="button" id="deleteButton">Delete</button>
+	</span>
+	
+	<div class="editForm" style="display: none">
+	<label>Name:</label>
+	<input type="text" id="newName<%=dish.id %>" value="<%= dish.name %>">
+	<label>Image:</label>
+	<input type="text" id="newImage_url<%= dish.id %>" value="<%=dish.image_url %>">
+	<label>Price:</label>
+	<input type="text" id="newPrice<%= dish.id %>" value="<%=dish.price %>">
+	<button class = "button" id="updateButton">Update</button>
+	</div>
+</script>
+
+<!-- ============== -->
+<!--    Libraries   -->
+<!-- ============== -->
+
+<!-- include jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ 
+ <!-- include Underscore -->
+<script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+
+ <!-- include Backbone -->
+<script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<!-- include our Backbone models, collections, views and routes -->
+<script type="text/javascript" src="scripts/models/dish.js"></script>
+<script type="text/javascript" src="scripts/collections/menu.js"></script>
+<script type="text/javascript" src="scripts/views/dish_views.js"></script>
+<script type="text/javascript" src="scripts/routes/routes.js"></script>
+
+
+</body>
+</html>
